@@ -12,6 +12,7 @@ import {
   Bell,
   Sparkles,
   Shapes,
+  FileQuestion,
   Sun,
   Moon,
 } from "lucide-react";
@@ -27,6 +28,7 @@ const navItems = [
   { href: "/animations", label: "Motion", icon: Sparkles },
   { href: "/feedback", label: "Feedback", icon: Bell },
   { href: "/icons", label: "Icons", icon: Shapes },
+  { href: "/questions", label: "Questions", icon: FileQuestion },
 ];
 
 export function Sidebar() {
