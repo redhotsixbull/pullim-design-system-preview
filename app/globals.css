@@ -33,6 +33,12 @@
   --color-brand-apricot: #fbc3b4;
   --color-brand-mint: #6fc1ba;
   --color-brand-lemon: #e6ff4c;
+  --color-korean: #ef863f;
+  --color-english: #0362da;
+  --color-math: #73991e;
+  --color-social: #b98a7a;
+  --color-science: #2f9a92;
+  --color-info: #7c7a7f;
 
   /* ── Subject Colors (badge-bg / badge-text) ── */
   --color-subject-korean-badge-bg: rgba(239, 134, 63, 0.08);

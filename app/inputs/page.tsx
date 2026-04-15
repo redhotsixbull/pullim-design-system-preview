@@ -29,7 +29,7 @@ export default function InputsPage() {
       </div>
 
       {/* Button */}
-      <PreviewSection title="Button — Variant">
+      <PreviewSection title="Button — Variant" description="동일 size(default) 기준 variant 비교">
         <PreviewRow>
           <Button variant="default">Default</Button>
           <Button variant="secondary">Secondary</Button>
@@ -40,29 +40,41 @@ export default function InputsPage() {
         </PreviewRow>
       </PreviewSection>
 
-      <PreviewSection title="Button — Size">
+      <PreviewSection title="Button — Size" description="동일 variant(default) 기준 size 비교">
         <PreviewRow>
-          <Button size="lg">Large</Button>
+          <Button size="lg" className="text-base">
+            Large
+          </Button>
           <Button size="default">Default</Button>
           <Button size="sm">Small</Button>
-          <Button size="icon" aria-label="설정">
-            <Settings />
+          <Button
+            size="icon"
+            aria-label="설정"
+            className="size-10 [&>svg]:size-4 [&>svg]:shrink-0"
+          >
+            <Settings className="size-4" />
           </Button>
         </PreviewRow>
       </PreviewSection>
 
       <PreviewSection title="Button — States & Icons">
         <PreviewRow>
-          <Button loading>저장 중...</Button>
+          <Button loading className="min-w-24" aria-label="저장 중" />
           <Button disabled>비활성</Button>
-          <Button>
-            <Plus /> 새로 만들기
+          <Button className="gap-2.5 px-4 [&>svg]:size-4 [&>svg]:shrink-0">
+            <Plus className="size-4" /> 새로 만들기
           </Button>
-          <Button variant="outline">
-            <Download /> 다운로드
+          <Button
+            variant="outline"
+            className="gap-2.5 px-4 [&>svg]:size-4 [&>svg]:shrink-0"
+          >
+            <Download className="size-4" /> 다운로드
           </Button>
-          <Button variant="destructive">
-            <Trash2 /> 삭제
+          <Button
+            variant="destructive"
+            className="gap-2.5 px-4 [&>svg]:size-4 [&>svg]:shrink-0"
+          >
+            <Trash2 className="size-4" /> 삭제
           </Button>
           <Button variant="outline" asChild>
             <a href="#">링크 버튼</a>
