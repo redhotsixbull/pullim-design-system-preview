@@ -271,11 +271,23 @@ const englishSetQuestion: SetQuestion = {
 
 function BlockPreview({ label, block }: { label: string; block: ComponentBlock }) {
   return (
-    <PreviewRow label={label}>
-      <div className="w-full">
-        <BlockRenderer block={block} />
-      </div>
-    </PreviewRow>
+    <div className="rounded-lg border border-border bg-background p-4">
+      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+        {label}
+      </p>
+      <BlockRenderer block={block} />
+    </div>
+  );
+}
+
+function QuestionCard({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="rounded-lg border border-border bg-background p-5">
+      <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+        {label}
+      </p>
+      <div className="overflow-hidden">{children}</div>
+    </div>
   );
 }
 
@@ -337,11 +349,12 @@ export default function QuestionsPage() {
       {/* ── Options ── */}
 
       <PreviewSection title="Options" description="선지 렌더러">
-        <PreviewRow label="text (vertical)">
-          <div className="w-full">
-            <OptionRenderer block={textOptionMock} />
-          </div>
-        </PreviewRow>
+        <div className="rounded-lg border border-border bg-background p-4">
+          <p className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+            text option (vertical)
+          </p>
+          <OptionRenderer block={textOptionMock} />
+        </div>
       </PreviewSection>
 
       {/* ── Scale / Variant Control ── */}
@@ -395,22 +408,18 @@ export default function QuestionsPage() {
         title="Full Question"
         description={`국어 단일 문제 — scale: ${(scale * 100).toFixed(0)}%, variant: ${variant}`}
       >
-        <PreviewRow label="QuestionRenderer">
-          <div className="w-full overflow-hidden">
-            <QuestionRenderer question={koreanQuestion} config={config} />
-          </div>
-        </PreviewRow>
+        <QuestionCard label="QuestionRenderer">
+          <QuestionRenderer question={koreanQuestion} config={config} />
+        </QuestionCard>
       </PreviewSection>
 
       <PreviewSection
         title="Set Question"
         description={`영어 세트 문제 [23~24] — scale: ${(scale * 100).toFixed(0)}%, variant: ${variant}`}
       >
-        <PreviewRow label="SetQuestionRenderer">
-          <div className="w-full overflow-hidden">
-            <SetQuestionRenderer setQuestion={englishSetQuestion} config={config} />
-          </div>
-        </PreviewRow>
+        <QuestionCard label="SetQuestionRenderer">
+          <SetQuestionRenderer setQuestion={englishSetQuestion} config={config} />
+        </QuestionCard>
       </PreviewSection>
     </div>
   );
